@@ -1,0 +1,36 @@
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 方言：为每种数据库提供适配器，方便转换 -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/tldemo</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<!--
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+-->
+        <property name="hibernate.c3p0.max_size">1</property>
+        <property name="hibernate.c3p0.min_size">1</property>
+        <!-- 获得连接的超时时间,如果超过这个时间,会抛出异常，单位毫秒 -->
+        <property name="hibernate.c3p0.timeout">120</property>
+        <!-- 最大的PreparedStatement的数量 -->
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <!-- 每隔120秒检查连接池里的空闲连接 ，单位是秒-->
+        <property name="hibernate.c3p0.idle_test_period">120</property>
+        <!-- 当连接池里面的连接用完的时候，C3P0一下获取的新的连接数 -->
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+
+        <!--是否在后台显示Hibernate用到的SQL语句，开发时设置为true，便于差错，程序运行时可以在Eclipse的控制台显示Hibernate的执行Sql语句。
+        项目部署后可以设置为false，提高运行效率-->
+        <property name="show_sql">true</property>
+        <!-- 使显示的sql格式化 -->
+        <property name="format_sql">true</property>
+
+    </session-factory>
+</hibernate-configuration>
