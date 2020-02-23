@@ -10,7 +10,7 @@
     <constant name="struts.locale" value="zh_CN"></constant>
 
     <package name="strutsDemo" extends="struts-default">
-        <action name="login" class="core.strutsDemo.ssLogionAction">
+        <action name="login" class="core.strutsDemo.ssLogionAction" method="loginAction">
             <result name="success">/easyUI/main.jsp</result>
             <result name="error">/index.jsp</result>
         </action>
