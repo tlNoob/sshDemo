@@ -23,11 +23,11 @@
                       {"menuid":"12","menuname":"疯狂秀才","icon":"icon-add","url":"http://www.mycodes.net"},
                       {"menuid":"13","menuname":"用户管理","icon":"icon-users","url":"demo2.html"},
                       {"menuid":"14","menuname":"角色管理","icon":"icon-role","url":"demo2.html"},
-                      {"menuid":"15","menuname":"权限设置","icon":"icon-set","url":"demo.html"},
+                      {"menuid":"15","menuname":"权限设置","icon":"icon-set","url":"com.demo.html"},
                       {"menuid":"16","menuname":"系统日志","icon":"icon-log","url":"demo1.html"}
                   ]
               },{"menuid":"8","icon":"icon-sys","menuname":"员工管理",
-                  "menus":[{"menuid":"21","menuname":"员工列表","icon":"icon-nav","url":"demo.html"},
+                  "menus":[{"menuid":"21","menuname":"员工列表","icon":"icon-nav","url":"com.demo.html"},
                       {"menuid":"22","menuname":"视频监控","icon":"icon-nav","url":"demo1.html"}
                   ]
               },{"menuid":"56","icon":"icon-sys","menuname":"部门管理",
@@ -35,12 +35,12 @@
                       {"menuid":"32","menuname":"部门列表","icon":"icon-nav","url":"demo2.html"}
                   ]
               },{"menuid":"28","icon":"icon-sys","menuname":"财务管理",
-                  "menus":[{"menuid":"41","menuname":"收支分类","icon":"icon-nav","url":"demo.html"},
+                  "menus":[{"menuid":"41","menuname":"收支分类","icon":"icon-nav","url":"com.demo.html"},
                       {"menuid":"42","menuname":"报表统计","icon":"icon-nav","url":"demo1.html"},
                       {"menuid":"43","menuname":"添加支出","icon":"icon-nav","url":"demo2.html"}
                   ]
               },{"menuid":"39","icon":"icon-sys","menuname":"商城管理",
-                  "menus":[{"menuid":"51","menuname":"商品分类","icon":"icon-nav","url":"demo.html"},
+                  "menus":[{"menuid":"51","menuname":"商品分类","icon":"icon-nav","url":"com.demo.html"},
                       {"menuid":"52","menuname":"商品列表","icon":"icon-nav","url":"demo1.html"},
                       {"menuid":"53","menuname":"商品订单","icon":"icon-nav","url":"demo2.html"}
                   ]

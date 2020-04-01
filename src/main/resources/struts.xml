@@ -8,12 +8,14 @@
     <constant name="struts.devMode" value="true"></constant>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
     <constant name="struts.locale" value="zh_CN"></constant>
+    <constant name="struts.convention.package.locators" value="action,actions,struts,struts2,com" />
+    <constant name="struts.objectFactory" value="spring"></constant>
 
-    <package name="strutsDemo" extends="struts-default">
-        <action name="login" class="core.strutsDemo.ssLogionAction" method="loginAction">
+    <!--<package name="strutsDemo" extends="struts-default">
+        <action name="login" class="com.demo.strutsDemo.ssLogionAction" method="loginAction">
             <result name="success">/easyUI/main.jsp</result>
             <result name="error">/index.jsp</result>
         </action>
-    </package>
+    </package>-->
 
 </struts>

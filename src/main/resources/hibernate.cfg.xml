@@ -31,6 +31,6 @@
         <property name="show_sql">true</property>
         <!-- 使显示的sql格式化 -->
         <property name="format_sql">true</property>
-        <mapping class="core.hibernateDemo.TLUserInfo"/>
+        <mapping class="com.demo.hibernateDemo.TLUserInfo"/>
     </session-factory>
 </hibernate-configuration>

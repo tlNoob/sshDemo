@@ -1,4 +1,4 @@
-package core.utils;
+package com.demo.utils;
 
 
 import java.sql.Connection;

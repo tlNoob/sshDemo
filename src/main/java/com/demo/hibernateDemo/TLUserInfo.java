@@ -1,4 +1,4 @@
-package core.hibernateDemo;
+package com.demo.hibernateDemo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +12,8 @@ public class TLUserInfo {
    private String userId;
    private String passWord;
    private String loginName;
+   private String roleCode;
+
 
     public String getUUId() {
         return UUId;
@@ -43,5 +45,13 @@ public class TLUserInfo {
 
     public void setLoginName(String loginName) {
         this.loginName = loginName;
+    }
+
+    public String getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(String roleCode) {
+        this.roleCode = roleCode;
     }
 }

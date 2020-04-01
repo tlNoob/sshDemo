@@ -1,4 +1,4 @@
-package core.tagDemo;
+package com.demo.tagDemo;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;

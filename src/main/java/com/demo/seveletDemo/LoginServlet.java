@@ -1,6 +1,6 @@
-package core.seveletDemo;
+package com.demo.seveletDemo;
 
-import core.utils.JDBCUtils;
+import com.demo.utils.JDBCUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

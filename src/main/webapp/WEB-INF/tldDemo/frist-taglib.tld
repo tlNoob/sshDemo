@@ -27,7 +27,7 @@
     <tag>
         <description>Outputs Hello, World</description>
         <name>helloWorld</name>
-        <tag-class>core.tagDemo.HelloWorldTag</tag-class>
+        <tag-class>com.demo.tagDemo.HelloWorldTag</tag-class>
         <body-content>empty</body-content>
     </tag>
 

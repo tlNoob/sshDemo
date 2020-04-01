@@ -1,23 +1,33 @@
-package core.strutsDemo;
+package com.demo.strutsDemo;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import core.hibernateDemo.SSHUtils;
-import core.hibernateDemo.TLUserInfo;
-import core.utils.JDBCUtils;
+import com.demo.hibernateDemo.SSHUtils;
+import com.demo.hibernateDemo.TLUserInfo;
+import com.demo.utils.JDBCUtils;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Controller;
 
-import javax.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.util.List;
-
+@Controller
+@ParentPackage("struts-default")
+@Namespace("/")
 public class ssLogionAction extends ActionSupport {
     private String userName;
     private String passWord;
     private String err;
+
+    public ssLogionAction(){
+        System.out.println("=====================创建ssLogionAction==========================");
+    }
     @Override
     public String execute() throws Exception {
         String sql="select *  from tl_user_info where userId= ?";
@@ -44,6 +54,10 @@ public class ssLogionAction extends ActionSupport {
         return SUCCESS;
     }
 
+    @Action(value="login", results={
+            @Result(name="success",location="/easyUI/main.jsp"),
+            @Result(name="error",location="/index.jsp")
+    })
     public String loginAction() {
         SessionFactory sessionFactory=SSHUtils.getSessionFactory();
         Session session=sessionFactory.openSession();
