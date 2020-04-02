@@ -2,7 +2,6 @@ package com.demo.strutsDemo;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.demo.hibernateDemo.SSHUtils;
 import com.demo.hibernateDemo.TLUserInfo;
 import com.demo.utils.JDBCUtils;
 import org.apache.struts2.convention.annotation.Action;
@@ -15,6 +14,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Controller;
 
+import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.util.List;
 @Controller
@@ -24,6 +24,8 @@ public class ssLogionAction extends ActionSupport {
     private String userName;
     private String passWord;
     private String err;
+    @Resource
+    private SessionFactory sessionFactory;
 
     public ssLogionAction(){
         System.out.println("=====================创建ssLogionAction==========================");
@@ -59,7 +61,7 @@ public class ssLogionAction extends ActionSupport {
             @Result(name="error",location="/index.jsp")
     })
     public String loginAction() {
-        SessionFactory sessionFactory=SSHUtils.getSessionFactory();
+        //SessionFactory sessionFactory=SSHUtils.getSessionFactory();
         Session session=sessionFactory.openSession();
         Transaction transaction=session.beginTransaction();
         Query query = session.createQuery("from TLUserInfo where userId = ? ");
@@ -83,13 +85,13 @@ public class ssLogionAction extends ActionSupport {
         if(err!=null && !err.equals("")){
             transaction.commit();
             session.close();
-            sessionFactory.close();
+            //sessionFactory.close();
             return ERROR;
 
         }
         transaction.commit();
         session.close();
-        sessionFactory.close();
+        //sessionFactory.close();
         return SUCCESS;
     }
 
