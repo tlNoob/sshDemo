@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter(filterName = "firstFilter",value = {"/*"})
+//@WebFilter(filterName = "firstFilter",value = {"/*"})
 public class FirstFilter implements Filter {
 
     private FilterConfig config;
