@@ -1,4 +1,4 @@
-package com.demo.seveletDemo;
+package com.demo.servletDemo;
 
 import com.demo.utils.JDBCUtils;
 

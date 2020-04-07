@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+  String path = request.getContextPath();
+  String basePath = request.getServerName() + ":" + request.getServerPort() + path + "/";
+  String baseUrlPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,7 +28,7 @@
 
   <script type="text/javascript">
       $(document).ready(function () {
-          var  err='${err}';
+          /*var  err='${err}';
           if(CheckIsNullOrEmpty(err)){
               layui.use('layer', function(){ //独立版的layer无需执行这一句
                   layer = layui.layer;
@@ -41,7 +47,7 @@
 
               });
 
-          }
+          }*/
       });
 
       function CheckIsNullOrEmpty(value) {
@@ -49,6 +55,62 @@
           var reg = /^\s*$/
           //返回值为true表示不是空字符串
           return (value != null && value != undefined && !reg.test(value));
+      }
+
+      function login() {
+          $.ajax({
+              //几个参数需要注意一下
+              type: "POST",//方法类型
+              dataType: "json",//预期服务器返回的数据类型
+              url: "/login" ,//url
+              data: $('#loginForm').serialize(),
+              success: function (result) {
+                  //console.log(result);//打印服务端返回的数据(调试用)
+                  var err=result.err;
+
+                  if(CheckIsNullOrEmpty(err)){
+                      layui.use('layer', function(){ //独立版的layer无需执行这一句
+                          layer = layui.layer;
+                          layer.open({
+                              type: 1
+                              ,offset: 't' //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                              ,id: 'layerDemo' //防止重复弹出
+                              ,content: '<div style="padding: 20px 100px;">'+ err +'</div>'
+                              ,btn: '关闭'
+                              ,btnAlign: 'c' //按钮居中
+                              ,shade: 0 //不显示遮罩
+                              ,yes: function(){
+                                  layer.closeAll();
+                              }
+                          });
+
+                      });
+                  }else{
+                      window.location.href='${basePath}'+"main.jsp";
+                  }
+
+              },
+              error : function() {
+                  layui.use('layer', function(){ //独立版的layer无需执行这一句
+                      layer = layui.layer;
+                      layer.open({
+                          type: 1
+                          ,offset: 't' //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                          ,id: 'layererr' //防止重复弹出
+                          ,content: '<div style="padding: 20px 100px;">'+ 内部错误 +'</div>'
+                          ,btn: '关闭'
+                          ,btnAlign: 'c' //按钮居中
+                          ,shade: 0 //不显示遮罩
+                          ,yes: function(){
+                              layer.closeAll();
+                          }
+                      });
+
+                  });
+
+              }
+
+          });
       }
 
   </script>
@@ -59,12 +121,12 @@
   <div class="message">TLDemo</div>
   <div id="darkbannerwrap"></div>
 
-  <form method="post" action="login">
+  <form id="loginForm" method="post" >
     <input name="userName" placeholder="用户名" required="true" type="text">
     <hr class="hr15" >
     <input name="passWord" placeholder="密码" required="true" type="password">
     <hr class="hr15" >
-    <input value="登录" style="width:100%;" type="submit">
+    <input value="登录" style="width:100%;" type="button" onclick="login()">
     <hr class="hr20">
     <!-- 帮助 <a onClick="alert('请联系管理员')">忘记密码</a> -->
   </form>

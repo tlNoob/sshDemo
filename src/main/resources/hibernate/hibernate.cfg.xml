@@ -33,6 +33,6 @@
         <property name="show_sql">true</property>
         &lt;!&ndash; 使显示的sql格式化 &ndash;&gt;
         <property name="format_sql">true</property>
-        <mapping class="com.demo.hibernateDemo.TLUserInfo"/>
+        <mapping class="com.demo.model.TLUserInfo"/>
     </session-factory>
 </hibernate-configuration>-->

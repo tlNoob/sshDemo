@@ -1,7 +1,7 @@
 package com.demo.filterDemo;
 
 
-import com.demo.hibernateDemo.TLUserInfo;
+import com.demo.model.TLUserInfo;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

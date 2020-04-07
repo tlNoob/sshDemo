@@ -12,7 +12,7 @@
     <constant name="struts.objectFactory" value="spring"></constant>
 
     <!--<package name="strutsDemo" extends="struts-default">
-        <action name="login" class="com.demo.strutsDemo.ssLogionAction" method="loginAction">
+        <action name="login" class="com.demo.action.ssLogionAction" method="loginAction">
             <result name="success">/easyUI/main.jsp</result>
             <result name="error">/index.jsp</result>
         </action>

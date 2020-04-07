@@ -1,6 +1,6 @@
-package com.demo.strutsDemo;
+package com.demo.service;
 
-import com.demo.hibernateDemo.TLUserInfo;
+import com.demo.model.TLUserInfo;
 import com.opensymphony.xwork2.ActionContext;
 import org.hibernate.Query;
 import org.hibernate.Session;

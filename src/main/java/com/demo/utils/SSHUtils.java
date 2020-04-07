@@ -1,10 +1,9 @@
-package com.demo.hibernateDemo;
+package com.demo.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.springframework.stereotype.Component;
 
 public class SSHUtils {
     //创建配置对象

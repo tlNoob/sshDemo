@@ -1,4 +1,4 @@
-package com.demo.hibernateDemo;
+package com.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

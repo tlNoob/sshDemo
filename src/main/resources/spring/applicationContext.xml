@@ -68,12 +68,12 @@
 
 		<!--<property name="annotatedClasses">
 			<list>
-				<value>com.demo.hibernateDemo.TLUserInfo</value>
+				<value>com.demo.model.TLUserInfo</value>
 			</list>
 		</property>-->
 		<property name="packagesToScan">
 			<list>
-				<value>com.demo.hibernateDemo</value>
+				<value>com.demo.model</value>
 			</list>
 		</property>
 
