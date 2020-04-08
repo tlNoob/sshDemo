@@ -7,6 +7,8 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
@@ -15,6 +17,7 @@ import javax.annotation.Resource;
 @ParentPackage("json-default")
 @Namespace("/")
 public class ssLogionAction extends ActionSupport {
+    private static final Logger logger = LoggerFactory.getLogger(ssLogionAction.class);
     private String userName;
     private String passWord;
     private String err;
@@ -22,7 +25,8 @@ public class ssLogionAction extends ActionSupport {
     private LoginService loginService;
 
     public ssLogionAction(){
-        System.out.println("=====================创建ssLogionAction==========================");
+        //System.out.println("=====================创建ssLogionAction==========================");
+        logger.debug("=====================创建ssLogionAction==========================");
     }
 
     @Action(value="login", results={

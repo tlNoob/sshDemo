@@ -3,6 +3,8 @@ package com.demo.service;
 import com.demo.dao.UserInfoDao;
 import com.demo.model.TLUserInfo;
 import com.opensymphony.xwork2.ActionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,10 +14,13 @@ import java.util.List;
 
 @Service
 public class LoginService {
+    private static final Logger logger = LoggerFactory.getLogger(LoginService.class);
+
     @Resource
     private UserInfoDao userInfoDao;
     public LoginService(){
-        System.out.println("==============创建LoginService==============");
+        //System.out.println("==============创建LoginService==============");
+        logger.debug("==============创建LoginService==============");
     }
     @Transactional(readOnly=true,propagation=Propagation.REQUIRED,rollbackFor = RuntimeException.class)
     public String login(String userId,String passWord){
