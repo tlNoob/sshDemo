@@ -3,10 +3,11 @@ package com.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name="tl_user_Info")
-public class TLUserInfo {
+public class TLUserInfo implements Serializable {
    @Id
    private String UUId;
    private String userId;
