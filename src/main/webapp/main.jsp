@@ -1,10 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String path = request.getContextPath();
+  String basePath = request.getServerName() + ":" + request.getServerPort() + path + "/";
+  String baseUrlPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>layout 后台大布局 - Layui</title>
   <link rel="stylesheet" href="layui/css/layui.css">
+  <script src="js/jquery-3.4.1.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -35,7 +41,7 @@
           <dd><a href="">安全设置</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="">退了</a></li>
+      <li class="layui-nav-item"><a href="javascript:void(0);" onclick="loginOut()">退了</a></li>
     </ul>
   </div>
 
@@ -83,6 +89,18 @@
         var element = layui.element;
 
     });
+
+    function loginOut() {
+
+        layui.use('layer', function(){ //独立版的layer无需执行这一句
+            layer = layui.layer;
+            layer.confirm('确定退出吗?', {icon: 3, title:'提示'}, function(index){
+                //do something
+                window.location.href="/LoginAction/loginOut";
+                layer.close(index);
+            });
+        });
+    }
 </script>
 </body>
 </html>

@@ -28,26 +28,7 @@
 
   <script type="text/javascript">
       $(document).ready(function () {
-          /*var  err='${err}';
-          if(CheckIsNullOrEmpty(err)){
-              layui.use('layer', function(){ //独立版的layer无需执行这一句
-                  layer = layui.layer;
-                  layer.open({
-                      type: 1
-                      ,offset: 't' //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
-                      ,id: 'layerDemo' //防止重复弹出
-                      ,content: '<div style="padding: 20px 100px;">'+ err +'</div>'
-                      ,btn: '关闭全部'
-                      ,btnAlign: 'c' //按钮居中
-                      ,shade: 0 //不显示遮罩
-                      ,yes: function(){
-                          layer.closeAll();
-                      }
-                  });
 
-              });
-
-          }*/
       });
 
       function CheckIsNullOrEmpty(value) {
@@ -62,7 +43,7 @@
               //几个参数需要注意一下
               type: "POST",//方法类型
               dataType: "json",//预期服务器返回的数据类型
-              url: "/login" ,//url
+              url: "LogionJsonAction/login" ,//url
               data: $('#loginForm').serialize(),
               success: function (result) {
                   //console.log(result);//打印服务端返回的数据(调试用)

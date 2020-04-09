@@ -1,5 +1,6 @@
 package com.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,9 +11,13 @@ import java.io.Serializable;
 public class TLUserInfo implements Serializable {
    @Id
    private String UUId;
+    @Column
    private String userId;
+    @Column
    private String passWord;
+    @Column
    private String loginName;
+    @Column
    private String roleCode;
 
 
