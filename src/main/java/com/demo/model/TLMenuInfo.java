@@ -1,9 +1,6 @@
 package com.demo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,7 +17,10 @@ public class TLMenuInfo implements Serializable {
    private String parentId;
     @Column
    private String remark;
+    @Column
+   private String sort;
 
+    @Transient
     private List<TLMenuInfo> childMenu;
 
     public String getId() {
@@ -69,5 +69,13 @@ public class TLMenuInfo implements Serializable {
 
     public void setChildMenu(List<TLMenuInfo> childMenu) {
         this.childMenu = childMenu;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
     }
 }

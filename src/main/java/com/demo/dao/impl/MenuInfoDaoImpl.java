@@ -11,6 +11,6 @@ import java.util.List;
 public class MenuInfoDaoImpl extends MyDaoSupport implements MenuInfoDao {
 
     public List<TLMenuInfo> findAllMenu() {
-        return ( List<TLMenuInfo>)this.getHibernateTemplate().find("from TLMenuInfo");
+        return ( List<TLMenuInfo>)this.getHibernateTemplate().find("from TLMenuInfo order by sort asc");
     }
 }

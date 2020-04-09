@@ -1,5 +1,6 @@
 package com.demo.action;
 
+import com.demo.model.TLMenuInfo;
 import com.demo.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.Action;
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 @ParentPackage("json-default")
@@ -21,6 +23,7 @@ public class LogionJsonAction extends ActionSupport {
     private String userName;
     private String passWord;
     private String err;
+    private List<TLMenuInfo> list;
     @Resource
     private LoginService loginService;
 
@@ -40,7 +43,7 @@ public class LogionJsonAction extends ActionSupport {
             @Result(name="success",type="json")
     })
     public String initMenu() {
-
+        list=loginService.initMenu();
         return SUCCESS;
     }
     public String getUserName() {
@@ -65,5 +68,13 @@ public class LogionJsonAction extends ActionSupport {
 
     public void setErr(String err) {
         this.err = err;
+    }
+
+    public List<TLMenuInfo> getList() {
+        return list;
+    }
+
+    public void setList(List<TLMenuInfo> list) {
+        this.list = list;
     }
 }
