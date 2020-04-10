@@ -4,6 +4,7 @@ import com.demo.dao.MenuInfoDao;
 import com.demo.dao.UserInfoDao;
 import com.demo.model.TLMenuInfo;
 import com.demo.model.TLUserInfo;
+import com.demo.utils.MD5Utils;
 import com.opensymphony.xwork2.ActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,9 +29,10 @@ public class LoginService {
         logger.debug("==============创建LoginService==============");
     }
     @Transactional(readOnly=true,propagation=Propagation.REQUIRED,rollbackFor = RuntimeException.class)
-    public String login(String userId,String passWord){
+    public String login(String userId,String passWord) throws Exception{
         String err=null;
-        List<TLUserInfo> list =userInfoDao.findByIDAndPwd(userId,passWord);
+
+        List<TLUserInfo> list =userInfoDao.findByIDAndPwd(userId,MD5Utils.md5(passWord));
         if(list!=null && list.size()>0){
             TLUserInfo tlUserInfo=list.get(0);
             ActionContext.getContext().getSession().put("user",tlUserInfo);

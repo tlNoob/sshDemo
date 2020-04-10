@@ -36,7 +36,11 @@ public class LogionJsonAction extends ActionSupport {
             @Result(name="success",type="json")
     })
     public String loginAction() {
-        err=loginService.login(userName,passWord);
+        try{
+            err=loginService.login(userName,passWord);
+        } catch (Exception e){
+            logger.error(e.getMessage());
+        }
         return SUCCESS;
     }
     @Action(value="/initMenu", results={

@@ -19,6 +19,8 @@ public class TLMenuInfo implements Serializable {
    private String remark;
     @Column
    private String sort;
+    @Column
+    private String isPage;
 
     @Transient
     private List<TLMenuInfo> childMenu;
@@ -77,5 +79,13 @@ public class TLMenuInfo implements Serializable {
 
     public void setSort(String sort) {
         this.sort = sort;
+    }
+
+    public String getIsPage() {
+        return isPage;
+    }
+
+    public void setIsPage(String isPage) {
+        this.isPage = isPage;
     }
 }
