@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserInfoDao {
     public List<TLUserInfo> findByIDAndPwd(String userId, String passWord);
+    public List<TLUserInfo> findAllUser();
 }

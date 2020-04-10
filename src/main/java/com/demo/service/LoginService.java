@@ -74,5 +74,9 @@ public class LoginService {
         }
         return childMenu;
     }
+    @Transactional(readOnly=true,propagation=Propagation.REQUIRED,rollbackFor = RuntimeException.class)
+    public List<TLUserInfo> findAllUser(){
+        return userInfoDao.findAllUser();
+    }
 
 }

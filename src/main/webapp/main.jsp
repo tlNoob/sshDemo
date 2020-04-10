@@ -72,8 +72,6 @@
     </div>
   </div>
 
-
-  <div style="clear: both"></div>
   <!--页面选项卡-->
   <%--<div id="indixe-tab">
     <div class="layui-tab" lay-allowClose="true" lay-filter="demo1" style="margin:0px;padding:0px;">
@@ -85,19 +83,27 @@
       </div>
     </div>
   </div>--%>
-  <%--<div class="layui-body">
+<%--  <div class="layui-body">
     <!-- 内容主体区域 -->
     <div style="padding: 15px;">
-
     </div>
   </div>--%>
 
   <div class="layui-tab" lay-filter="tag" lay-allowclose="true" style="margin-left: 210px;">
     <ul class="layui-tab-title ">
-      <li class="layui-this welcome" lay-id='1'>首页</li>
+
     </ul>
+
+    <ul class="rightmenu" style="display: none;position: absolute;background: #6E6C79;font-family: '微软雅黑';">
+      <li id="yue" style="color: red;cursor:pointer;" data-id="" data-type="closethis">
+        <a href="#" id="colcse" style="color: white;cursor:pointer;"  data-type="closethis"  >   &nbsp;&nbsp;关闭当前&nbsp;&nbsp;</a>
+      </li>
+      <li data-type="closeall">
+        <a href="#" id="colcse" style="color: white;cursor:pointer;" data-id=""  data-type="closeall">&nbsp;&nbsp;关闭所有&nbsp;&nbsp;</a>
+      </li>
+    </ul>
+
     <div class="layui-tab-content">
-      <div class="layui-tab-item layui-show">1</div>
     </div>
   </div>
 
@@ -133,11 +139,11 @@
             url:"LogionJsonAction/initMenu",
             dataType:"json",
             success:function(data){
-                debugger;
+                //debugger;
                 //先添加所有的主材单
                 var list=data.list;
                 $.each(list,function(i,obj){
-                    debugger;
+                    //debugger;
                     var content='<li class="layui-nav-item">';
                     content+='<a href="javascript:;" class="menu" data-id="'+obj.id+'" data-title="'+obj.name+'" data-url="'+obj.link+'" data-ispage="'+obj.isPage+'" >'+obj.name+'</a>';
                     //这里是添加所有的子菜单
@@ -285,8 +291,6 @@
         $(window).resize(function () {
             FrameWH();
         })
-
-
     });
 
     function loginOut() {

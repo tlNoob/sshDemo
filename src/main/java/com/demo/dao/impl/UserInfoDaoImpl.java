@@ -2,12 +2,17 @@ package com.demo.dao.impl;
 
 import com.demo.base.MyDaoSupport;
 import com.demo.dao.UserInfoDao;
+
 import com.demo.model.TLUserInfo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
 public class UserInfoDaoImpl extends MyDaoSupport implements UserInfoDao {
+
+    public List<TLUserInfo> findAllUser() {
+        return ( List<TLUserInfo>)this.getHibernateTemplate().find("from TLUserInfo");
+    }
 
     public List<TLUserInfo> findByIDAndPwd(String userId, String passWord) {
         TLUserInfo tlUserInfo =new TLUserInfo();

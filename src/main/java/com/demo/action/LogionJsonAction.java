@@ -1,7 +1,10 @@
 package com.demo.action;
 
+import com.alibaba.fastjson.JSONObject;
 import com.demo.model.TLMenuInfo;
+import com.demo.model.TLUserInfo;
 import com.demo.service.LoginService;
+import com.demo.utils.JsonTools;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -24,6 +27,8 @@ public class LogionJsonAction extends ActionSupport {
     private String passWord;
     private String err;
     private List<TLMenuInfo> list;
+    private List<TLUserInfo> userList;
+    private JSONObject result;
     @Resource
     private LoginService loginService;
 
@@ -50,6 +55,15 @@ public class LogionJsonAction extends ActionSupport {
         list=loginService.initMenu();
         return SUCCESS;
     }
+    @Action(value="/findAllUser", results={
+            @Result(name="success",type="json",params={"root","result"})
+    })
+    public String findAllUser() {
+        List<TLUserInfo>userList=loginService.findAllUser();
+        result=JsonTools.ToGridJson(userList,"1000");
+        return SUCCESS;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -80,5 +94,21 @@ public class LogionJsonAction extends ActionSupport {
 
     public void setList(List<TLMenuInfo> list) {
         this.list = list;
+    }
+
+    public List<TLUserInfo> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<TLUserInfo> userList) {
+        this.userList = userList;
+    }
+
+    public JSONObject getResult() {
+        return result;
+    }
+
+    public void setResult(JSONObject result) {
+        this.result = result;
     }
 }
